@@ -1,2 +1,3 @@
 # custom-javascript-chrome-snippets
-Used to store custom js scripts for cjs extension
+Used in conjunction with [witchcraft chrome extension](https://luciopaiva.com/witchcraft/how-to-install.html)
+
