@@ -4,10 +4,14 @@
 
 const addScrollToNowBehavior = (element) => {
     element.addEventListener('click', () => {
-        document.querySelector('.time-indicator-line').scrollIntoView({
-            behavior: 'instant',
-            block: 'center',
-        })
+        scrollToNowLine()
+    })
+}
+
+const scrollToNowLine = () => {
+    document.querySelector('.time-indicator-line').scrollIntoView({
+        behavior: 'instant',
+        block: 'center',
     })
 }
 
