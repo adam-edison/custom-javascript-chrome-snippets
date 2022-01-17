@@ -10,6 +10,7 @@ const addScrollToNowBehavior = (element) => {
 	    	block: "center"
 		});
 	});
+
 }
 
 // NOTE: The observer is required to make sure the element is loaded
