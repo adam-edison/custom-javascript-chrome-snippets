@@ -8,6 +8,18 @@ const addScrollToNowBehavior = (element) => {
     })
 }
 
+const addKeyboardShortcuts = () => {
+    document.addEventListener('keydown', (event) => {
+        if (event.metaKey && event.shiftKey && event.key === 's') {
+            document.querySelector('.sprite-event-rec-single').click()
+        } else if (event.metaKey && event.shiftKey && event.key === 'f') {
+            document.querySelector('.sprite-event-rec-future').click()
+        } else if (event.metaKey && event.shiftKey && event.key === 'a') {
+            document.querySelector('.sprite-event-rec-all').click()
+        }
+    })
+}
+
 const scrollToNowLine = () => {
     document.querySelector('.time-indicator-line').scrollIntoView({
         behavior: 'instant',
@@ -22,6 +34,7 @@ const observer = new MutationObserver((mutations, obs) => {
 
     if (todayButton) {
         addScrollToNowBehavior(todayButton)
+        addKeyboardShortcuts()
     }
 
     obs.disconnect()
