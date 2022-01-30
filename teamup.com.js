@@ -30,6 +30,12 @@ const scrollToNowLine = () => {
     })
 }
 
+const scrollToNowAfterDelay = (delay) => {
+    setTimeout(() => {
+        scrollToNowLine()
+    }, delay)
+}
+
 // NOTE: The observer is required to make sure the element is loaded
 // before attempting to attach an event listener to that element
 const observer = new MutationObserver((mutations, obs) => {
@@ -38,9 +44,9 @@ const observer = new MutationObserver((mutations, obs) => {
     if (todayButton) {
         addScrollToNowBehavior(todayButton)
         addKeyboardShortcuts()
+        scrollToNowAfterDelay(200)
+        obs.disconnect()
     }
-
-    obs.disconnect()
 })
 
 // executes immediately
