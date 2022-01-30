@@ -16,6 +16,9 @@ const addKeyboardShortcuts = () => {
             document.querySelector('.sprite-event-rec-future').click()
         } else if (event.metaKey && event.shiftKey && event.key === 'a') {
             document.querySelector('.sprite-event-rec-all').click()
+        } else if (event.metaKey && event.key === 's') {
+            event.preventDefault()
+            document.querySelector('.save-button button').click()
         }
     })
 }
