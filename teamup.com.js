@@ -30,10 +30,14 @@ const scrollToNowLine = () => {
     })
 }
 
-const scrollToNowAfterDelay = (delay) => {
+const clickTodayTwiceAfterDelay = (todayButton, delay) => {
     setTimeout(() => {
-        scrollToNowLine()
+        todayButton.click()
     }, delay)
+
+    setTimeout(() => {
+        todayButton.click()
+    }, delay + 30)
 }
 
 // NOTE: The observer is required to make sure the element is loaded
@@ -44,7 +48,7 @@ const observer = new MutationObserver((mutations, obs) => {
     if (todayButton) {
         addScrollToNowBehavior(todayButton)
         addKeyboardShortcuts()
-        scrollToNowAfterDelay(200)
+        clickTodayTwiceAfterDelay(todayButton, 500)
         obs.disconnect()
     }
 })
