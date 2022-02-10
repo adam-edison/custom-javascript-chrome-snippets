@@ -10,15 +10,15 @@ const addScrollToNowBehavior = (element) => {
 
 const addKeyboardShortcuts = () => {
     document.addEventListener('keydown', (event) => {
-        if (event.metaKey && event.shiftKey && event.key === 's') {
+        if (event.metaKey && event.key === 's') {
+            event.preventDefault()
+            document.querySelector('.save-button button').click()
+        } else if (event.metaKey && event.shiftKey && event.key === 's') {
             document.querySelector('.sprite-event-rec-single').click()
         } else if (event.metaKey && event.shiftKey && event.key === 'f') {
             document.querySelector('.sprite-event-rec-future').click()
         } else if (event.metaKey && event.shiftKey && event.key === 'a') {
             document.querySelector('.sprite-event-rec-all').click()
-        } else if (event.metaKey && event.key === 's') {
-            event.preventDefault()
-            document.querySelector('.save-button button').click()
         }
     })
 }
