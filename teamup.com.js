@@ -8,17 +8,36 @@ const addScrollToNowBehavior = (element) => {
     })
 }
 
+const keyMap = {
+    i: '.sprite-event-rec-single',
+    u: '.sprite-event-rec-future',
+    a: '.sprite-event-rec-all',
+    t: '#title',
+    s: '.save-button .button',
+    6: '.date-from-value .datepicker .form-control.input',
+    7: '.date-from-value .timepicker input',
+    8: '.date-to-value .datepicker .input',
+    9: '.date-to-value .timepicker input',
+}
+
 const addKeyboardShortcuts = () => {
     document.addEventListener('keydown', (event) => {
-        if (event.metaKey && event.key === 's') {
+        if (event.metaKey && event.shiftKey && event.ctrlKey && event.key === 'I') {
             event.preventDefault()
-            document.querySelector('.save-button button').click()
-        } else if (event.metaKey && event.shiftKey && event.key === 's') {
-            document.querySelector('.sprite-event-rec-single').click()
-        } else if (event.metaKey && event.shiftKey && event.key === 'f') {
-            document.querySelector('.sprite-event-rec-future').click()
-        } else if (event.metaKey && event.shiftKey && event.key === 'a') {
-            document.querySelector('.sprite-event-rec-all').click()
+            const result = window.prompt('Focus?')
+
+            if (!result) {
+                return
+            }
+
+            const key = result.toLowerCase()
+            const selector = keyMap[key]
+
+            if (!selector) {
+                return
+            }
+
+            document.querySelector(selector).focus()
         }
     })
 }
