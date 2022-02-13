@@ -21,6 +21,11 @@ const keyMap = {
 }
 
 const addKeyboardShortcuts = () => {
+    // TODO: to make this faster, create an input in the document with tab index -1
+    //  and make it focusable with the shortcut
+    //  then focus and clear its text on shortcut
+    //  then bind an event when enter is pressed on that input that will trigger a focus change
+    //  this way there is no waiting for the browser to render a prompt, and no visual terribleness
     document.addEventListener('keydown', (event) => {
         if (event.metaKey && event.shiftKey && event.ctrlKey && event.key === 'I') {
             event.preventDefault()
