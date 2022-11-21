@@ -26,6 +26,7 @@ const addKeyboardShortcuts = () => {
     //  then focus and clear its text on shortcut
     //  then bind an event when enter is pressed on that input that will trigger a focus change
     //  this way there is no waiting for the browser to render a prompt, and no visual terribleness
+    // <input type="text" style="width: 1px">
     document.addEventListener('keydown', (event) => {
         if (event.metaKey && event.shiftKey && event.ctrlKey && event.key === 'I') {
             event.preventDefault()
